@@ -138,10 +138,10 @@ namespace Armada___Space_Shooter_Game_v2
 
             // Setup audio settings
             bgAudio.settings.setMode("loop", true);
-            bgAudio.settings.volume = 9;
-            shootAudio.settings.volume = 7;
-            boomAudio.settings.volume = 10;
-            powerUpAudio.settings.volume = 10;
+            bgAudio.settings.volume = 80;
+            shootAudio.settings.volume = 60;
+            boomAudio.settings.volume = 90;
+            powerUpAudio.settings.volume = 80;
 
             stars = new PictureBox[10];
             random = new Random();
@@ -384,7 +384,7 @@ namespace Armada___Space_Shooter_Game_v2
                             if (score % 30 == 0)
                             {
                                 level += 1;
-                                labelLevel.Text = (level < 10) ? "Level: 0" + level.ToString() : "Level: 0" + level.ToString();
+                                labelLevel.Text = (level < 10) ? "Level: " + level.ToString() : "Level: " + level.ToString();
 
                                 if (enemySpeed <= 10 && enemyBulletSpeed <= 10 && difficulty >= 0)
                                 {
@@ -428,7 +428,7 @@ namespace Armada___Space_Shooter_Game_v2
                     }
                     else
                     {
-                        boomAudio.settings.volume = 30;
+                        boomAudio.settings.volume = 100;
                         boomAudio.controls.play();
                         Player.Visible = false;
                         GameOver("Game Over!");
@@ -499,7 +499,7 @@ namespace Armada___Space_Shooter_Game_v2
                 if (enemyBullet[i].Bounds.IntersectsWith(Player.Bounds))
                 {
                     enemyBullet[i].Visible = false;
-                    boomAudio.settings.volume = 30;
+                    boomAudio.settings.volume = 100;
                     boomAudio.controls.play();
                     Player.Visible = false;
                     GameOver("Game Over!");
