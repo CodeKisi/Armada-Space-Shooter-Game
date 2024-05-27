@@ -2,18 +2,18 @@
 
 ## Table of Contents
 1. [Introduction](#Introduction)
-2. [How to Play](#How to Play)
-3. [Game Setup](#Game Setup)
-4. [Game Components](#Game Components)
+2. [How to Play](#how-to-play)
+3. [Game Setup](#game-setup)
+4. [Game Components](#game-components)
     1. [Assets](#Assets)
     2. [Audio](#Audio)
-5. [Game Logic](#Game Logic)
+5. [Game Logic](#game-logic)
     1. [Movement](#Movement)
     2. [Timers](#Timers)
     3. [Collisions](#Collisions)
-6. [Game Over and Restart](#Game Over and Restart)
-7. [Other Methods Used](#Other Methods Used)
-8. [Key Event Handlers](#Key Event Handlers)
+6. [Game Over and Restart](#game-over-and-restart)
+7. [Other Methods Used](#other-methods-used)
+8. [Key Event Handlers](#key-event-handlers)
 
 ## Introduction
 Armada is a 2D shooter game where the player controls a spaceship and must defeat enemies while avoiding collisions. The game includes multiple levels and various enemy types, with increasing difficulty as the player progresses.
@@ -43,7 +43,7 @@ The objective of Armada is to survive as long as possible while shooting down en
 ### Game Load
 The `Armada_Load` method initializes the game by setting up initial values, loading assets, configuring enemies, bullets, stars, and audio. It also starts the background music.
 
-```C#
+```csharp
 private void Armada_Load(object sender, EventArgs e)
 {
     // Initialize game values and load assets
@@ -141,7 +141,7 @@ private void Armada_Load(object sender, EventArgs e)
 ## Game Components
 ### Assets
 Assets include images for bullets, enemies, and power-ups which are loaded from the specified file paths.
-```C#
+```csharp
     // Load images for the game
     Image bullet = Image.FromFile(@"assets\bullet.png");
     Image boss1 = Image.FromFile(@"assets\boss1.png");
@@ -174,7 +174,7 @@ Assets include images for bullets, enemies, and power-ups which are loaded from 
 
 ### Audio
 Audio components are initialized using the `WindowsMediaPlayer` and include background music and sound effects for shooting, explosions, and power-ups.
-```C#
+```csharp
 // Windows Media Player Initialization
 bgAudio = new WindowsMediaPlayer();
 shootAudio = new WindowsMediaPlayer();
@@ -204,7 +204,7 @@ Timers are used to update the game state periodically, such as moving the backgr
 
 #### Background Movement
 Moves the background stars to create a scrolling effect.
-```C#
+```csharp
 private void MoveBgTimer_Tick(object sender, EventArgs e)
 {
     // Move background stars with different speeds for a more dynamic effect
@@ -231,7 +231,7 @@ private void MoveBgTimer_Tick(object sender, EventArgs e)
 
 #### Player Movement
 Handles player movement based on timer ticks and key presses.
-```C#
+```csharp
 // Move player based on key presses (assuming Left, Top, Right, and Bottom properties exist)
 if (Player.Left > 10 && e.KeyCode == Keys.Left)
 {
@@ -256,7 +256,7 @@ if (Player.Bottom < 600 && e.KeyCode == Keys.Down)
 
 #### Bullet Movement
 Moves bullets upwards and checks for collisions.
-```C#
+```csharp
 private void BulletMvTimer_Tick(object sender, EventArgs e)
 {
     // Move bullets and handle collisions
@@ -281,7 +281,7 @@ private void BulletMvTimer_Tick(object sender, EventArgs e)
 
 #### Enemy Movement
 Moves enemies down the screen and resets their positions if they move off-screen.
-```C#
+```csharp
 private void MoveEnemies(PictureBox[] array, int speed)
 {
     // Move enemies and reset their positions if needed
@@ -310,7 +310,7 @@ private void MoveEnemies(PictureBox[] array, int speed)
 
 ### Collisions
 Collision detection between bullets and enemies, and between the player and enemies or bullets.
-```C#
+```csharp
 private void Collision()
 {
     // Handle collisions between bullets and enemies
@@ -388,7 +388,7 @@ private void Collision()
 ```
 ### Collision With Enemy Bullet
 Handles collisions between enemy bullets and the player.
-```C#
+```csharp
 private void CollisionWithEnemyBullet()
 {
     // Handle collisions between enemy bullets and the player
@@ -408,7 +408,7 @@ private void CollisionWithEnemyBullet()
 
 ### Game Over and Restart
 Handles the game over state, stops the game, and provides options to restart or exit.
-```C#
+```csharp
 private void GameOver(String prompt)
 {
     // Display game over prompt and stop the game
@@ -427,7 +427,7 @@ private void GameOver(String prompt)
 ## Other Methods Used
 ### Increase Ammo
 Increases the player's ammo when a power-up is collected.
-```C#
+```csharp
 private void IncreaseAmmo()
 {
     // Increase the amount of player ammo
@@ -443,7 +443,7 @@ private void IncreaseAmmo()
 ```
 ### Game Over
 Displays the game over prompt and stops all game activities.
-```C#
+```csharp
 private void GameOver(string prompt)
 {
     // Display game over prompt and stop the game
@@ -459,7 +459,7 @@ private void GameOver(string prompt)
 ```
 ### Stop Timers
 Stops all game timers.
-```C#
+```csharp
 private void StopTimers()
 {
     // Stop all game timers
@@ -471,7 +471,7 @@ private void StopTimers()
 ```
 ### Start Timers
 Starts all game timers.
-```C#
+```csharp
 private void StartTimers()
 {
     // Start all game timers
@@ -483,7 +483,7 @@ private void StartTimers()
 ```
 ### Play Label Click
 Restarts the game when the "Play" label is clicked.
-```C#
+```csharp
 private void labelPlay_Click(object sender, EventArgs e)
 {
     // Restart the game when Play label is clicked
@@ -496,7 +496,7 @@ private void labelPlay_Click(object sender, EventArgs e)
 ```
 ### Welcome Game
 Displays the welcome screen.
-```C#
+```csharp
 private void WelcomeGame()
 {
     // Show welcome screen
@@ -511,7 +511,7 @@ private void WelcomeGame()
 
 ### Key Down
 Handles key press events to start player movement and pause functionality.
-```C#
+```csharp
 private void Armada_KeyDown(object sender, KeyEventArgs e)
 {
     // Handle key press events
@@ -538,7 +538,7 @@ private void Armada_KeyDown(object sender, KeyEventArgs e)
 ```
 ### Key Up
 Handles key release events to stop player movement and toggle pause state.
-```C#
+```csharp
 private void Armada_KeyUp(object sender, KeyEventArgs e)
 {
     // Handle key release events
